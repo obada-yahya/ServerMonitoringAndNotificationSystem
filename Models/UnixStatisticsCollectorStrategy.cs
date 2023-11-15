@@ -1,4 +1,4 @@
-﻿namespace Something.Models;
+﻿namespace StatisticsCollector.Models;
 
 public class UnixStatisticsCollectorStrategy : IStatisticsCollectorStrategy
 {

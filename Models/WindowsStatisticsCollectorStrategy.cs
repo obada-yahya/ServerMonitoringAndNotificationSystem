@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Something.Models;
+namespace StatisticsCollector.Models;
 
 public class WindowsStatisticsCollectorStrategy : IStatisticsCollectorStrategy
 {
