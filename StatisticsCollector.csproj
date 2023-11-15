@@ -8,4 +8,8 @@
         <RootNamespace>Something</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="7.0.0" />
+    </ItemGroup>
+
 </Project>
