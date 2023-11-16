@@ -2,7 +2,7 @@
 
 public class ServerStatistics
 {
-    public string ServerIdentifier { get; init; }
+    public string? ServerIdentifier { get; init; }
     public double MemoryUsage { get; init; } // in MB
     public double AvailableMemory { get; init; } // in MB
     public double CpuUsage { get; init; }

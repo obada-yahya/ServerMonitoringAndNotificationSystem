@@ -11,10 +11,11 @@ public class StatisticsCollectorService
         _statisticsCollectorStrategy = statisticsCollectorStrategy;
     }
 
-    public ServerStatistics Collect()
+    public ServerStatistics Collect(string? serverIdentifier)
     {
         return new ServerStatistics
         {
+            ServerIdentifier = serverIdentifier,
             MemoryUsage = _statisticsCollectorStrategy.CalculateMemoryUsage(),
             AvailableMemory = _statisticsCollectorStrategy.CalculateAvailableMemory(),
             CpuUsage = _statisticsCollectorStrategy.CalculateCpuUsages(),
