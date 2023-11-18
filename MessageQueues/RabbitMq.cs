@@ -21,19 +21,27 @@ public class RabbitMq : IMessageQueue
 
     private IConnection? CreateConnection()
     {
-        try
+        var rabbitMqStringConnection = Environment.GetEnvironmentVariable("RABBITMQ_CONNECTION_STRING");
+        var clientProvidedName = "Rabbit Statistics Sender";
+        var maxConnectionAttempts  = 30;
+        var timeDelayBetweenAttempts = 1000;
+        while (maxConnectionAttempts  >= 0)
         {
-            return new ConnectionFactory()
+            try
             {
-                //TODO (GET RID OF MAGIC VALUES)
-                Uri = new Uri(Environment.GetEnvironmentVariable("RABBITMQ_CONNECTION_STRING")),
-                ClientProvidedName = "Rabbit Statistics Sender"
-            }.CreateConnection();
+                return new ConnectionFactory()
+                {
+                    Uri = new Uri(rabbitMqStringConnection),
+                    ClientProvidedName = clientProvidedName
+                }.CreateConnection();
+            }
+            catch (Exception)
+            {
+                maxConnectionAttempts --;
+                Thread.Sleep(timeDelayBetweenAttempts);
+            }
         }
-        catch (Exception e)
-        {
-            Console.WriteLine("Connection to RabbitMq Server has failed.");
-        }
+        Console.WriteLine("Connection to RabbitMq Server has failed.");
         return null;
     }
     
