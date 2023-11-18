@@ -16,7 +16,7 @@ public class WindowsStatisticsCollectorStrategy : IStatisticsCollectorStrategy
         return availableMemory;
     }
 
-    public float CalculateCpuUsages(int numberOfTimes = 5,int sleepTime = 200)
+    public float CalculateCpuUsages(int numberOfTimes = 5, int sleepTime = 200)
     {
         const int timeBeforeStarting = 300;
         var total = 0F;

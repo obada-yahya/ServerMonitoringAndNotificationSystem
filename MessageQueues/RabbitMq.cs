@@ -25,6 +25,7 @@ public class RabbitMq : IMessageQueue
         {
             return new ConnectionFactory()
             {
+                //TODO (GET RID OF MAGIC VALUES)
                 Uri = new Uri(Environment.GetEnvironmentVariable("RABBITMQ_CONNECTION_STRING")),
                 ClientProvidedName = "Rabbit Statistics Sender"
             }.CreateConnection();
@@ -49,7 +50,7 @@ public class RabbitMq : IMessageQueue
             var routingKey = $"{_exchangeName}.{_serverIdentifier}";
             
             _connection = CreateConnection();
-            var channel = _connection.CreateModel();
+            using var channel = _connection.CreateModel();
             channel.ExchangeDeclare(_exchangeName,ExchangeType.Direct);
             channel.QueueDeclare(_queueName, false, false, false, null);
             channel.QueueBind(_queueName, _exchangeName, routingKey, null);
