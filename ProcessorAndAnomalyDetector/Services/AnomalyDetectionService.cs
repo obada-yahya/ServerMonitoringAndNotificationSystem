@@ -83,7 +83,7 @@ public class AnomalyDetectionService : IAnomalyDetectionService
         {
             const string environmentVariableName = "ANOMALY_DETECTION_CONFIG_CPU_USAGE_THRESHOLD_PERCENTAGE";
             var cpuUsageThresholdPercentage = double.Parse(Environment.GetEnvironmentVariable(environmentVariableName));
-            return (currentCpuUsage > cpuUsageThresholdPercentage);
+            return (currentCpuUsage > cpuUsageThresholdPercentage * 100);
         }
         catch (Exception e)
         {
