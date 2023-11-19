@@ -1,0 +1,38 @@
+﻿services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    networks:
+      - sysnetwork
+  
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - sysnetwork
+  
+  
+  processorandanomalydetector:
+    image: processorandanomalydetector
+    build:
+      context: .
+      dockerfile: ProcessorAndAnomalyDetector/Dockerfile
+    depends_on:
+      - mongo
+    networks:
+      - sysnetwork
+    stdin_open: true
+    tty: true
+    
+    
+networks:
+  sysnetwork:
+    driver: bridge
+    
+volumes:
+  mongodb:

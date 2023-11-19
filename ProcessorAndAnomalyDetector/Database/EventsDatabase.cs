@@ -25,6 +25,7 @@ public class EventsDatabase : IEventsDatabase
         }
         catch (Exception e)
         {
+            Console.WriteLine(e.Message);
             Console.WriteLine("Failed to connect to the database");
         }
         return null;
