@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticsCollector", "StatisticsCollector.csproj", "{38EFAE89-2A0D-4E39-93AA-B40810089C1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessorAndAnomalyDetector", "ProcessorAndAnomalyDetector\ProcessorAndAnomalyDetector.csproj", "{257E5327-B292-48D9-87BF-3605F1FB174F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{38EFAE89-2A0D-4E39-93AA-B40810089C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38EFAE89-2A0D-4E39-93AA-B40810089C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38EFAE89-2A0D-4E39-93AA-B40810089C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{257E5327-B292-48D9-87BF-3605F1FB174F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{257E5327-B292-48D9-87BF-3605F1FB174F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{257E5327-B292-48D9-87BF-3605F1FB174F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{257E5327-B292-48D9-87BF-3605F1FB174F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

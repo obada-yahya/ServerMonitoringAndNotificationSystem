@@ -8,4 +8,16 @@
         <RootNamespace>Something</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="ProcessorAndAnomalyDetector\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ProcessorAndAnomalyDetector\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ProcessorAndAnomalyDetector\**" />
+    </ItemGroup>
+
 </Project>
