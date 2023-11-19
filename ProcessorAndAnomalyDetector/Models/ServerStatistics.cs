@@ -16,8 +16,8 @@ public class ServerStatistics
     
     public override string ToString()
     {
-        return $"{{\n\t\"ServerIdentifier\": \"{ServerIdentifier}\",\n\t\"MemoryUsage\": {MemoryUsage}MB," +
-               $"\n\t\"AvailableMemory\": {AvailableMemory}MB,\n\t\"CpuUsage\": {CpuUsage}," +
+        return $"{{\n\t\"ServerIdentifier\": \"{ServerIdentifier}\",\n\t\"MemoryUsage\": {MemoryUsage}," +
+               $"\n\t\"AvailableMemory\": {AvailableMemory},\n\t\"CpuUsage\": {CpuUsage}," +
                $"\n\t\"Timestamp\": \"{Timestamp:yyyy-MM-ddTHH:mm:ssZ}\"\n}}";
     }
 }

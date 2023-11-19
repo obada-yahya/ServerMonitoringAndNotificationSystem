@@ -20,14 +20,15 @@ public class AnomalyDetectionService : IAnomalyDetectionService
             var serverStatistics = JsonSerializer.Deserialize<ServerStatistics>(message);
             var recentServerStatistics = await _eventsDatabase.GetRecentEvent(serverStatistics.ServerIdentifier);
             await _eventsDatabase.StoreEvent(serverStatistics);
-            if (recentServerStatistics is null) return;
             Console.WriteLine($"We are comparing the new which is {serverStatistics}");
             Console.WriteLine($"With the most recent which is {recentServerStatistics}");
+            
             if (IsMemoryHighUsage(serverStatistics.MemoryUsage, serverStatistics.AvailableMemory))
             {
                 SendMessage("HighMemoryUsage");
             }
-            else if (IsMemoryUsageAnomaly(serverStatistics.MemoryUsage,recentServerStatistics.MemoryUsage))
+            else if (recentServerStatistics is not null && 
+                     IsMemoryUsageAnomaly(serverStatistics.MemoryUsage,recentServerStatistics.MemoryUsage))
             {
                 SendMessage("MemoryUsageAnomaly");
             }
@@ -36,7 +37,8 @@ public class AnomalyDetectionService : IAnomalyDetectionService
             {
                 SendMessage("HighCpuUsage");
             }
-            else if (IsCpuUsageAnomaly(serverStatistics.CpuUsage,recentServerStatistics.CpuUsage))
+            else if (recentServerStatistics is not null &&
+                     IsCpuUsageAnomaly(serverStatistics.CpuUsage,recentServerStatistics.CpuUsage))
             {
                 SendMessage("CpuUsageAnomaly");
             }
