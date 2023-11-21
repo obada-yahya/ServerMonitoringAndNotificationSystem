@@ -5,6 +5,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessorAndAnomalyDetector", "ProcessorAndAnomalyDetector\ProcessorAndAnomalyDetector.csproj", "{257E5327-B292-48D9-87BF-3605F1FB174F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB179598-CF7F-4C3F-A6D3-C7EB91E69C7B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB83F751-488D-4931-94D7-911F1ACBB3A0}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection

@@ -5,9 +5,15 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Something</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.6.0" />
+      <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="7.0.0" />
+    </ItemGroup>
     <ItemGroup>
       <Compile Remove="ProcessorAndAnomalyDetector\**" />
     </ItemGroup>
