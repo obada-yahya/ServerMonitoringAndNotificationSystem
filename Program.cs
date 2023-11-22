@@ -1,8 +1,8 @@
-﻿using StatisticsCollector.MessageQueues;
+using StatisticsCollector.MessageQueues;
 
 public class Program
 {
-    public async static Task Main(string[] args)
+    public static void Main(string[] args)
     {
         var serverIdentifier = Environment.GetEnvironmentVariable("SERVERSTATISTICSCONFIG_SERVERIDENTIFIER");
         var samplingIntervalSeconds = int.Parse(Environment.GetEnvironmentVariable("SERVERSTATISTICSCONFIG_SAMPLINGINTERVALSECONDS"));

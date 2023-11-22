@@ -14,5 +14,16 @@
       <PackageReference Include="RabbitMQ.Client" Version="6.6.0" />
       <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="7.0.0" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="ProcessorAndAnomalyDetector\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ProcessorAndAnomalyDetector\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ProcessorAndAnomalyDetector\**" />
+    </ItemGroup>
 
 </Project>

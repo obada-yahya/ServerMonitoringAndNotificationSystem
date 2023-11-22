@@ -6,6 +6,29 @@
       - '15672:15672'
     networks:
       - sysnetwork
+  
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - sysnetwork
+  
+  
+  processorandanomalydetector:
+    image: processorandanomalydetector
+    build:
+      context: .
+      dockerfile: ProcessorAndAnomalyDetector/Dockerfile
+    depends_on:
+      - mongo
+      - rabbitmq
+    networks:
+      - sysnetwork
+    stdin_open: true
+    tty: true
 
   serverstatisticscollectionservice:
     image: statisticscollector
@@ -17,10 +40,13 @@
     networks:
       - sysnetwork
     environment:
-      - SERVERSTATISTICSCONFIG_SERVERIDENTIFIER="win1"
+      - SERVERSTATISTICSCONFIG_SERVERIDENTIFIER=win1
     stdin_open: true
     tty: true
 
 networks:
   sysnetwork:
     driver: bridge
+       
+volumes:
+  mongodb:
