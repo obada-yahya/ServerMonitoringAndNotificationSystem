@@ -16,14 +16,20 @@
     </ItemGroup>
     <ItemGroup>
       <Compile Remove="ProcessorAndAnomalyDetector\**" />
+      <Compile Remove="SignalREventConsumerService\**" />
+      <Compile Remove="EventConsumer\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="ProcessorAndAnomalyDetector\**" />
+      <EmbeddedResource Remove="SignalREventConsumerService\**" />
+      <EmbeddedResource Remove="EventConsumer\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="ProcessorAndAnomalyDetector\**" />
+      <None Remove="SignalREventConsumerService\**" />
+      <None Remove="EventConsumer\**" />
     </ItemGroup>
 
 </Project>
