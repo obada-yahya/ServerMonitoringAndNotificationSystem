@@ -7,10 +7,12 @@ namespace ProcessorAndAnomalyDetector.Services;
 public class AnomalyDetectionService : IAnomalyDetectionService
 {
     private readonly IEventsDatabase _eventsDatabase;
+    private readonly IRealTimeAlertSender _realTimeAlertSender;
     
-    public AnomalyDetectionService(IEventsDatabase eventsDatabase)
+    public AnomalyDetectionService(IEventsDatabase eventsDatabase, IRealTimeAlertSender realTimeAlertSender)
     {
         _eventsDatabase = eventsDatabase;
+        _realTimeAlertSender = realTimeAlertSender;
     }
 
     public async Task HandleServerStatisticsMessage(string message)
@@ -107,6 +109,6 @@ public class AnomalyDetectionService : IAnomalyDetectionService
 
     private void SendMessage(string message)
     {
-        Console.WriteLine(message);
+        _realTimeAlertSender.SendAlertMessage(message);
     }
 }

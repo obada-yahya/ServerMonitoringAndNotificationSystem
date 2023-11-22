@@ -14,9 +14,17 @@ public class SignalRClient : IRealTimeAlertSender
 
     private HubConnection EstablishHubConnection(string hubUrl)
     {
-        return new HubConnectionBuilder()
-            .WithUrl(hubUrl)
-            .Build();
+        try
+        {
+            return new HubConnectionBuilder()
+                .WithUrl(hubUrl)
+                .Build();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        return null;
     }
 
     public async Task SendAlertMessage(string message)
