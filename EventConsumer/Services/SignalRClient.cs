@@ -14,12 +14,13 @@ public class SignalRClient : IReceiveRealTimeCommunication
 
     private HubConnection EstablishHubConnection(string hubUrl)
     {
-        return new HubConnectionBuilder()
-            .WithUrl(hubUrl)
-            .Build();
+            return new HubConnectionBuilder()
+                .WithUrl(hubUrl)
+                .WithAutomaticReconnect()
+                .Build();
     }
 
-    public Task ReceiveAlertMessage()
+    public Task ReceiveAlertMessages()
     {
         _hubConnection.On<string>("ReceiveAlertMessage", eventData =>
         {

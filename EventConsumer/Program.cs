@@ -4,8 +4,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var service = new SignalRClient("http://localhost:5124/alert");
-        service.ReceiveAlertMessage();
+        var signalRHubUrl = Environment.GetEnvironmentVariable("SIGNALR_CONFIG__SIGNALR_URL");
+        var service = new SignalRClient(signalRHubUrl);
+        service.ReceiveAlertMessages();
         Console.ReadLine();
     }
 }

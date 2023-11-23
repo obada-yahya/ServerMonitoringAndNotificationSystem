@@ -2,5 +2,5 @@
 
 public interface IReceiveRealTimeCommunication
 {
-    public Task ReceiveAlertMessage();
+    public Task ReceiveAlertMessages();
 }
