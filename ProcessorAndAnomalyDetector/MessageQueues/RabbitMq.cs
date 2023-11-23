@@ -72,7 +72,6 @@ public class RabbitMq : IMessageQueue
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine($"Message #{cnt++} Received");
                 _anomalyDetectionService.HandleServerStatisticsMessage(message);
-                Thread.Sleep(3000);
                 channel.BasicAck(args.DeliveryTag, false);
             };
             var consumerTag = channel.BasicConsume(_queueName, false, consumer);

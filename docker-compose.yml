@@ -25,12 +25,13 @@
     depends_on:
       - mongo
       - rabbitmq
+      - signalreventconsumer
     networks:
       - sysnetwork
     stdin_open: true
     tty: true
 
-  serverstatisticscollectionservice:
+  statisticscollector:
     image: statisticscollector
     build:
       context: .
@@ -41,6 +42,33 @@
       - sysnetwork
     environment:
       - SERVERSTATISTICSCONFIG_SERVERIDENTIFIER=win1
+    stdin_open: true
+    tty: true
+    
+  signalreventconsumer:
+    image : signalreventconsumer
+    build:
+      context: .
+      dockerfile: ./SignalREventConsumerService/Dockerfile
+    ports:
+      - '5124:5124'
+    environment:
+      - ASPNETCORE_HTTP_PORT=https://+:5124
+      - ASPNETCORE_URLS=http://+:5124
+    networks: 
+      - sysnetwork
+    stdin_open: true
+    tty: true
+    
+  eventconsumer:
+    image: eventconsumer
+    build:
+      context: .
+      dockerfile: ./EventConsumer/Dockerfile
+    depends_on:
+      - signalreventconsumer
+    networks:
+      - sysnetwork
     stdin_open: true
     tty: true
 
