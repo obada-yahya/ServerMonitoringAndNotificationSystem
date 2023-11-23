@@ -1,6 +1,6 @@
 # Server Monitoring and Notification System
 
-The **Server Monitoring and Notification System** is a comprehensive solution designed to collect, analyze, and notify users about the performance of their servers. The system is divided into three main tasks:
+The **Server Monitoring and Notification System** is a comprehensive solution designed to collect, analyze, and notify users about the performance of their servers. The system is divided into three main services:
 
 ## Server Statistics Collection Service
 
